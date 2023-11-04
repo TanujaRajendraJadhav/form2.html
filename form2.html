@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Registration Form</title>
+</head>
+<body bgcolor="lavender">
+ <div style="border-style: double;">
+ <center><h2><u>Registration Form (Student Details)</u></h2></center>
+ <hr>
+ <form id="registrationForm">
+ <table>
+ <tr>
+ <td>01. Name of Student :</td>
+ <td><input type="text" id="studentName" placeholder="Student's Name"></td>
+ </tr>
+
+ <tr>
+ <td>03. Date of Birth of Student :</td>
+ <td><input type="date" id="dob"></td>
+ </tr>
+ <tr>
+ <td>04. Whatsapp Number :</td>
+ <td><input type="number" id="whatsappNumber"
+placeholder="82******48"></td>
+ </tr>
+ <tr>
+ <td>05. Email of Student :</td>
+ <td><input type="email" id="studentEmail"
+placeholder="xyz@gmail.com"></td>
+ </tr>
+ <tr>
+ <td>06. Password of log-in :</td>
+ <td><input type="password" id="loginPassword"
+placeholder="password"></td>
+ </tr>
+ <tr>
+ <td>07. Name of School/College :</td>
+ <td><textarea id="schoolCollegeName" rows="2" cols="10"
+placeholder="Name of School/College"></textarea></td>
+ </tr>
+ <tr>
+ <td>08. Subjects Offered :</td>
+ <td>
+ <input type="checkbox" id="maths">Maths
+ <input type="checkbox" id="science">Science
+ <input type="checkbox" id="english">English
+
+ </td>
+ </tr>
+
+ <tr>
+ <td>09. Board :</td>
+ <td>
+ <select id="board">
+ <option>Choose Board</option>
+ <option>SSC</option>
+ <option>HSC</option>
+ <option>ICSE</option>
+ <option>CBSE</option>
+ </select>
+ </td>
+ </tr>
+
+ <tr>
+ <td>10. Hobbies:</td>
+ <td>
+ <input type="checkbox" id="singing">Singing
+ <input type="checkbox" id="dancing">Dancing
+ <input type="checkbox" id="playing">Playing
+ <input type="checkbox" id="studying">Studying
+ <input type="checkbox" id="others">Others
+ </td>
+ </tr>
+
+ <tr>
+ <td colspan="2">
+ <input type="submit" value="Finish & Submit">
+ <input type="reset" value="Clear All">
+ </td>
+ </tr>
+ </table>
+ </form>
+ <hr>
+ <script>
+ // Access the form using its ID
+ const form = document.getElementById("registrationForm");
+ // Attach an event listener to the form for form submission
+ form.addEventListener("submit", function (event) {
+ event.preventDefault(); // Prevent the default form submission
+ // Access form elements by their IDs
+ const studentName = document.getElementById("studentName").value;
+ const dob = document.getElementById("dob").value;
+ const whatsappNumber =
+document.getElementById("whatsappNumber").value;
+ const studentEmail = document.getElementById("studentEmail").value;
+ const loginPassword = document.getElementById("loginPassword").value;
+ const schoolCollegeName =
+document.getElementById("schoolCollegeName").value;
+ const maths = document.getElementById("maths").checked;
+ const science = document.getElementById("science").checked;
+ const english = document.getElementById("english").checked;
+ const board = document.getElementById("board").value;
+ const singing = document.getElementById("singing").checked;
+ const dancing = document.getElementById("dancing").checked;
+
+ const playing = document.getElementById("playing").checked;
+ const studying = document.getElementById("studying").checked;
+ const others = document.getElementById("others").checked;
+ if (studentName.trim() === "") {
+ alert("Please enter a valid student name.");
+ return; // Don't submit the form
+ }
+ if (dob.trim() === "") {
+ alert("Please enter a valid date of birth.");
+ return; // Don't submit the form
+ }
+ if (!studentEmail.includes('@')) {
+ alert("Please enter a valid email address.");
+ return; // Don't submit the form
+ }
+ if(loginPassword.length<6){
+ alert("Password must be at least 6 characters long.");
+ return false;
+ }
+ // Validate that the contact number contains only numbers
+ if (isNaN(whatsappNumber)) {
+ alert("Please enter a valid contact number.");
+ return; // Don't submit the form
+ }
+ alert("Form submitted successfully!");
+ form.reset(); // Clear the form after submission (optional)
+ });
+ </script>
+</body>
+</html> 
